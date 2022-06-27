@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Bars from '../../assets/bars-solid.svg';
 import Navbar from '../../Components/Navbar';
 import { useContextApp } from '../../Context';
-import { H1, ContainerAuth } from '../../global/styles/globals';
+import { ContainerAuth } from '../../global/styles/globals';
 import api from '../../services';
 import {
   Container,
@@ -44,7 +44,7 @@ const Dashboard = () => {
         .then((res) => {
           setAccount(res.data);
         })
-        .catch((err) => {
+        .catch(() => {
           // console.log(err.response.data);
         });
     }

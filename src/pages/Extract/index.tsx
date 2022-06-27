@@ -32,7 +32,7 @@ const Withdraw = () => {
         .then((res) => {
           setAccount(res.data);
         })
-        .catch((err) => {
+        .catch(() => {
           // console.log(err.response.data);
         });
     }
