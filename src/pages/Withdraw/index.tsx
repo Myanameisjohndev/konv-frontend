@@ -1,22 +1,30 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import Bars from '../../assets/bars-solid.svg';
 import Navbar from '../../Components/Navbar';
 import { useContextApp } from '../../Context';
 import {
-  H1, ContainerAuth, InputContainer, Input, Button,
+  ContainerAuth, InputContainer, Input, Button,
 } from '../../global/styles/globals';
 import api from '../../services';
 import {
   Container, HeaderDashboard, Text, Content, IconNav, Row, AreaCard, FormOperation,
 } from './styles';
 
+interface INumbers{
+  note100: number,
+  note50: number,
+  note20: number,
+  note10: number,
+  note5: number,
+  note2: number,
+  note1: number,
+}
+
 const Withdraw = () => {
   const { user, setUser } = useContextApp();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState<string>('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (Number(value) < 0) {
@@ -24,7 +32,7 @@ const Withdraw = () => {
     }
   }, [value]);
 
-  const validNotes = (data: any) => {
+  const validNotes = (data :INumbers[]) => {
     let finalString = '';
     if (data[0].note100 > 0) {
       finalString = `${data[0].note100 > 1 ? `${data[0].note100} notas de 100 reais` : `${data[0].note100} nota de 100 reais`} `;

@@ -13,7 +13,7 @@ const Login = () => {
   const [cpf, setCpf] = useState('');
   const { user, setUser } = useContextApp();
   const navigate = useNavigate();
-  function LoginUser(e: any) {
+  function LoginUser(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
 
     if (!password) {

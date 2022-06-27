@@ -12,9 +12,9 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [password, setPaword] = useState('');
   const [cpf, setCpf] = useState('');
-  const { user, setUser } = useContextApp();
+  const { user } = useContextApp();
   const navigate = useNavigate();
-  function LoginUser(e: any) {
+  function LoginUser(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
 
     if (!name) {
